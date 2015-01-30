@@ -33,7 +33,6 @@ angular.module('ImageModalSvc', [])
 
         buildDialog = function (template) {
             var dfd = $q.defer(),
-                dialogBody,
                 onResult = function (resultData) {
                     if (resultData) {
                         dfd.resolve(resultData);
@@ -76,6 +75,19 @@ angular.module('ImageModalSvc', [])
 
             if (scope.options.isZoomable) {
                 setTimeout(function () {
+                    var dialogBody =
+                        document.getElementsByClassName('image-dialog-body');
+
+                    if (dialogBody && dialogBody.length > 0) {
+                        var bod = dialogBody[0],
+                            imgElem = bod.getElementsByTagName('img');
+
+                            if (imgElem && imgElem.length > 0) {
+                                imgElem = imgElem[0];
+                                bod.style.width = imgElem.width + 'px';
+                            }
+                    }
+
                     initZoom();
                 }, 0);
             }
