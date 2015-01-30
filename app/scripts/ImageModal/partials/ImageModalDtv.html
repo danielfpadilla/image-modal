@@ -1,0 +1,22 @@
+<div
+    class="image-modal-wrapper"
+    ng-class="{
+            uploading:isUploading
+        }">
+    <img ng-class="{clickable: !isUploadable}" ng-show="hasImage" ng-click="onImageClick(); $event.preventDefault()">
+    <input
+        ng-if="isUploadable"
+        accept="image/jpg, image/jpeg, image/png, image/gif, image/bmp"
+        type="file"
+        file-reader
+        on-file-change="onImageChange(files)">
+    <span
+        class="img-upload-label"
+        ng-show="!hasImage">
+    </span>
+    <a
+        class="is-removable"
+        href=""
+        ng-if="isRemovable && hasImage"
+        ng-click="removeImage()">Remove</a>
+</div>
