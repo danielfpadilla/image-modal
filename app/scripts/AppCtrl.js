@@ -6,24 +6,61 @@ angular.module('AppCtrl',[])
             ['$scope',
              function ($scope) {
 
-    $scope.images = [
+    $scope.form = [
         {
-            "src": 'http://resources1.news.com.au/images/2007/10/29/1111119/820369-daniel-johns.jpg',
+            "key": "profpic",
+            "type": "imagemodal",
+            "format": "image",
             "enableZoom": true,
             "enableUpload": true,
             "enableRemove": true
         },
+        "name",
+        "email",
         {
-            "src": 'http://cdn.theunlockr.com/wp-content/uploads/2013/04/HTC_One_360_Wide.png',
-            "enableZoom": true,
-            "enableUpload": true,
-            "enableRemove": true
+            "key": "comment",
+            "type": "textarea",
+            "placeholder": "Make a comment"
         },
         {
-            "src": 'https://eyalvardi.files.wordpress.com/2013/04/angularjs-logo.png',
-            "enableZoom": true,
-            "enableUpload": true,
-            "enableRemove": true
+            "type": "submit",
+            "style": "btn-info",
+            "title": "OK"
         }
     ];
+
+    $scope.schema = {
+        "type": "object",
+        "title": "Comment",
+        "properties": {
+            "profpic": {
+                "title": "Profile Pic",
+                "type": "imagemodal",
+                "description": "My Face"
+            },
+            "name": {
+                "title": "Name",
+                "type": "string"
+            },
+            "email": {
+                "title": "Email",
+                "type": "string",
+                "pattern": "^\\S+@\\S+$",
+                "description": "Email will be used for evil."
+            },
+            "comment": {
+                "title": "Comment",
+                "type": "string",
+                "maxLength": 20,
+                "validationMessage": "Don't be greedy!"
+            }
+        },
+        "required": [
+            "name",
+            "email",
+            "comment"
+        ]
+    };
+
+    $scope.model = {};
 }])

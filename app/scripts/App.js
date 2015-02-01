@@ -7,7 +7,5 @@
 */
 angular.module('dangular',
                ['ngMaterial',
-                'ngRoute',
                 'AppCtrl',
-                'FileReader',
-                'ImageModal']);
+                'schemaForm']);

@@ -19,7 +19,8 @@
 
         <!-- build:css styles/app.css -->
         <link rel="stylesheet" href="styles/app.css">
-        <link rel="stylesheet" href="styles/ImageModal.css">
+        <link rel="stylesheet" href="imagemodal/css/imagemodal.css">
+        <link rel="stylesheet" href="imagemodal/magnifierjs/magnifier.css">
         <!-- endbuild -->
     </head>
     <body ng-controller="AppCtrl" layout="column" layout-align="top center">
@@ -33,27 +34,8 @@
         </md-toolbar>
 
         <md-content ng-cloak>
-            <md-card ng-repeat="image in images">
-                <img
-                    id="img_{{this.$index}}"
-                    image-modal-directive
-                    image-is-zoomable="image.enableZoom"
-                    image-is-uploadable="image.enableUpload"
-                    image-is-removable="image.enableRemove"
-                    image-src="{{image.src}}"
-                    class="md-card-image">
-                <h2>First Image</h2>
-                <md-checkbox ng-model="image.enableZoom" aria-label="Enable Zoom">
-                    Enable Zoom: {{ image.enableZoom }}
-                </md-checkbox>
-
-                <md-checkbox ng-model="image.enableUpload" aria-label="Enable Upload">
-                    Enable Upload: {{ image.enableUpload }}
-                </md-checkbox>
-
-                <md-checkbox ng-model="image.enableRemove" aria-label="Enable Remove">
-                    Enable Remove: {{ image.enableRemove }}
-                </md-checkbox>
+            <md-card>
+                <form sf-schema="schema" sf-form="form" sf-model="model"></form>
             </md-card>
         </md-content>
 
@@ -74,19 +56,24 @@
         <script src="bower_components/angular-animate/angular-animate.min.js"></script>
         <script src="bower_components/angular-aria/angular-aria.min.js"></script>
         <script src="bower_components/angular-material/angular-material.min.js"></script>
-        <script src="bower_components/angular-route/angular-route.min.js"></script>
         <script src="bower_components/angular-touch/angular-touch.min.js"></script>
         <script src="bower_components/eventjs/event.js"></script>
         <script src="bower_components/magnifierjs/magnifier.js"></script>
+
+        <script src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+        <script src="bower_components/tv4/tv4.js"></script>
+        <script src="bower_components/objectpath/lib/ObjectPath.js"></script>
+        <script src="bower_components/angular-schema-form/dist/schema-form.min.js"></script>
+        <script src="bower_components/angular-schema-form/dist/bootstrap-decorator.min.js"></script>
         <!-- endbower -->
         <!-- endbuild -->
 
         <!-- build:js scripts/app.js -->
-        <script src="scripts/FileReader/FileReaderDtv.js"></script>
-        <script src="scripts/ImageModal/ImageModalDtv.js"></script>
-        <script src="scripts/ImageModal/ImageModalSvc.js"></script>
-        <script src="scripts/ImageModal/ImageModal.js"></script>
 
+        <script type="text/javascript" src="imagemodal/eventjs/event.js"></script>
+        <script type="text/javascript" src="imagemodal/magnifierjs/magnifier.js"></script>
+        <script type="text/javascript" src="imagemodal/bootstrap-imagemodal.js"></script>
+        <script type="text/javascript" src="imagemodal/imagemodal.js"></script>
         <script src="scripts/App.js"></script>
         <script src="scripts/AppCtrl.js"></script>
         <!-- endbuild -->
