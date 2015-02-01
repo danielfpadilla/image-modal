@@ -106,6 +106,7 @@
     top: 5px;
     height: 24px;
     width: 24px;
+    color: #FFF;
 }
 .image-dialog .close-btn:hover{
     opacity: .5;
