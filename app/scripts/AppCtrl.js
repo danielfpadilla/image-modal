@@ -16,7 +16,7 @@ angular.module('AppCtrl',[])
             "key": "profpic",
             "type": "imagemodal",
             "title": "Profile Pic",
-            "description": "My Face",
+            "description": "Awesome picture here.",
             "format": "image",
             "enableUpload": $scope.model.enableUpload,
             "enableRemove": $scope.model.enableRemove,
@@ -24,19 +24,7 @@ angular.module('AppCtrl',[])
         },
         "enableRemove",
         "enableUpload",
-        "enableZoom",
-        "name",
-        "email",
-        {
-            "key": "comment",
-            "type": "textarea",
-            "placeholder": "Make a comment"
-        },
-        {
-            "type": "submit",
-            "style": "btn-info",
-            "title": "OK"
-        }
+        "enableZoom"
     ];
 
     $scope.schema = {
@@ -54,29 +42,9 @@ angular.module('AppCtrl',[])
             "enableZoom": {
                 "type": "boolean",
                 "title": "Enable Zoom"
-            },
-            "name": {
-                "title": "Name",
-                "type": "string"
-            },
-            "email": {
-                "title": "Email",
-                "type": "string",
-                "pattern": "^\\S+@\\S+$",
-                "description": "Email will be used for evil."
-            },
-            "comment": {
-                "title": "Comment",
-                "type": "string",
-                "maxLength": 20,
-                "validationMessage": "Don't be greedy!"
             }
         },
-        "required": [
-            "name",
-            "email",
-            "comment"
-        ]
+        "required": []
     };
 
     $scope.$watch('model', function (value) {
