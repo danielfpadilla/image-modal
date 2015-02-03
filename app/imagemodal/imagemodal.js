@@ -17,11 +17,11 @@ angular.module('schemaForm')
         '       uploading:isUploading' +
         '   }">' +
         '   <img' +
-        '       ng-class="{clickable: !isUploadable}"' +
+        '       ng-class="{clickable: !isUploadable || hasImage}"' +
         '       ng-show="hasImage"' +
         '       ng-click="onImageClick(); $event.preventDefault()">' +
         '   <input' +
-        '       ng-if="isUploadable"' +
+        '       ng-if="isUploadable && !hasImage"' +
         '       accept="image/jpg, image/jpeg, image/png, image/gif, image/bmp"' +
         '       type="file"' +
         '       file-reader' +
@@ -221,7 +221,7 @@ angular.module('schemaForm')
 
                     // Called when dataUrl loaded on the imgChecker
                     imgChecker.onload = function() {
-                        // Show Image cropper
+                        // Show Image modal
                         imageModalService
                             .show({
                                 "src": imgChecker.src,
@@ -248,7 +248,7 @@ angular.module('schemaForm')
             };
 
             scope.onImageClick = function () {
-                // Show Image cropper
+                // Show Image modal
                 imageModalService
                     .show({
                         "src": img.src,
